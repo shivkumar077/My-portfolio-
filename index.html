@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d1114" />
+  <meta name="color-scheme" content="dark light" />
+
+  <title>Shiv Kumar — Computer Science, Cloud Computing &amp; Software</title>
+  <meta name="description" content="Shiv Kumar — Computer Science with specialization in Cloud Computing at Techno India University. Java projects, distributed systems, and cloud infrastructure." />
+
+  <!-- Portfolio Mascot Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles.css" />
+
+  <!-- Default Always to Dark Mode for new visitors -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body class="antialiased font-normal text-ink selection:bg-accent/20">
+  <a href="#main" class="meta sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-paper focus:px-3 focus:py-2 focus:text-ink">
+    SKIP TO CONTENT
+  </a>
+
+  <!-- Fixed Sky Gradient Background (Light/Dark mode) -->
+  <div id="bg-sky" class="pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
+
+  <!-- Fixed Canvas Background (Auroras, Stars, Drifting Planets) -->
+  <canvas id="bg-canvas" aria-hidden="true" class="pointer-events-none fixed inset-0 z-0 transition-opacity duration-200" style="display:block;"></canvas>
+
+  <!-- Interactive Coordinate Field Canvas -->
+  <canvas id="coord-canvas" aria-hidden="true" class="pointer-events-none fixed inset-0 z-0"></canvas>
+
+  <!-- Navigation Header -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-[90] transition-colors duration-200 border-b border-transparent">
+    <div class="flex items-center justify-between px-margin py-4">
+      <a id="site-logo" class="display text-lg font-semibold tracking-tight text-ink cursor-pointer" aria-label="SK — Shiv Kumar, home" href="#hero">
+        SK<span aria-hidden="true" class="text-accent">.</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav aria-label="Primary" class="hidden items-center gap-7 md:flex">
+        <a href="#work" data-section="work" class="nav-item u-link meta relative transition-colors duration-200 text-ink-soft hover:text-ink">WORK</a>
+        <a href="#experience" data-section="experience" class="nav-item u-link meta relative transition-colors duration-200 text-ink-soft hover:text-ink">EXPERIENCE</a>
+        <a href="#about" data-section="about" class="nav-item u-link meta relative transition-colors duration-200 text-ink-soft hover:text-ink">ABOUT</a>
+        <a href="#contact" data-section="contact" class="nav-item u-link meta relative transition-colors duration-200 text-ink-soft hover:text-ink">CONTACT</a>
+
+        <button type="button" id="cmd-palette-btn" class="meta flex cursor-pointer items-center gap-1.5 border border-hairline px-2 py-1 text-ink-soft transition-colors hover:border-ink-soft hover:text-ink" aria-label="⌘K — Open command palette">
+          <kbd class="font-[inherit]">⌘K</kbd>
+        </button>
+        <button type="button" id="theme-toggle-btn" class="meta cursor-pointer text-ink-soft transition-colors hover:text-ink" aria-label="Switch theme mode">
+          LIGHT
+        </button>
+      </nav>
+
+      <!-- Mobile Navigation Controls -->
+      <div class="flex items-center gap-4 md:hidden">
+        <button type="button" id="theme-toggle-btn-mobile" class="meta cursor-pointer text-ink-soft transition-colors hover:text-ink">LIGHT</button>
+        <button type="button" id="mobile-menu-btn" class="meta cursor-pointer text-ink" aria-expanded="false" aria-controls="mobile-index">INDEX</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Fullscreen Index Overlay -->
+  <div id="mobile-index" class="fixed inset-0 z-[80] bg-paper md:hidden transition-opacity duration-200 opacity-0 pointer-events-none overflow-y-auto">
+    <nav aria-label="Mobile" class="flex flex-col justify-between flex-1 px-margin pb-6 pt-1 w-full h-full min-h-[calc(100dvh-3.75rem)] box-border">
+      <div class="flex flex-col flex-1 justify-between">
+        <div class="mobile-nav-item border-b border-hairline flex items-center flex-1">
+          <a href="#hero" class="mobile-nav-link flex items-baseline gap-4 w-full py-3.5 sm:py-4">
+            <span class="meta text-accent-ink">01</span>
+            <span class="display mobile-nav-text font-medium text-ink">HOME</span>
+          </a>
+        </div>
+        <div class="mobile-nav-item border-b border-hairline flex items-center flex-1">
+          <a href="#work" class="mobile-nav-link flex items-baseline gap-4 w-full py-3.5 sm:py-4">
+            <span class="meta text-accent-ink">02</span>
+            <span class="display mobile-nav-text font-medium text-ink">WORK</span>
+          </a>
+        </div>
+        <div class="mobile-nav-item border-b border-hairline flex items-center flex-1">
+          <a href="#experience" class="mobile-nav-link flex items-baseline gap-4 w-full py-3.5 sm:py-4">
+            <span class="meta text-accent-ink">03</span>
+            <span class="display mobile-nav-text font-medium text-ink">EXPERIENCE</span>
+          </a>
+        </div>
+        <div class="mobile-nav-item border-b border-hairline flex items-center flex-1">
+          <a href="#about" class="mobile-nav-link flex items-baseline gap-4 w-full py-3.5 sm:py-4">
+            <span class="meta text-accent-ink">04</span>
+            <span class="display mobile-nav-text font-medium text-ink">ABOUT</span>
+          </a>
+        </div>
+        <div class="mobile-nav-item border-b border-hairline flex items-center flex-1">
+          <a href="#contact" class="mobile-nav-link flex items-baseline gap-4 w-full py-3.5 sm:py-4">
+            <span class="meta text-accent-ink">05</span>
+            <span class="display mobile-nav-text font-medium text-ink">CONTACT</span>
+          </a>
+        </div>
+      </div>
+      <div class="mobile-nav-item pt-5 pb-1">
+        <a href="https://github.com/shivkumar077?tab=repositories" target="_blank" rel="noopener noreferrer" id="mobile-archive-btn" class="meta text-ink-soft inline-block py-2">
+          <span>EVERYTHING ELSE — THE ARCHIVE</span> &rarr;
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Main Content Stream -->
+  <main id="main" class="relative z-10">
+
+    <!-- 01 HERO SECTION -->
+    <section id="hero" aria-label="Introduction" class="relative flex min-h-dvh flex-col justify-end px-margin pb-16 pt-28 md:justify-between md:pb-20 md:pt-32">
+      <div class="meta mb-14 flex flex-col gap-1.5 text-ink-soft md:mb-0 md:items-end">
+        <span>22.5804° N, 88.4378° E</span>
+        <span id="indian-time"></span>
+        <span class="flex items-start gap-2 md:flex-row-reverse">
+          <span class="status-dot mt-[0.45em]" aria-hidden="true"></span>
+          <span class="md:text-right">OPEN TO INTERNSHIP OPPORTUNITIES</span>
+        </span>
+      </div>
+
+      <div>
+        <!-- Official Portfolio Mascot: Pink Planet with Cool Sunglasses -->
+        <div id="hero-mascot" class="mb-5 inline-flex items-center gap-3.5 cursor-pointer select-none group" data-cursor="POKE" title="Click to interact with Shiv's mascot!">
+          <div class="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0">
+            <canvas id="mascot-canvas" width="160" height="160" class="w-full h-full block transform transition-transform duration-300 group-hover:scale-110 active:scale-90"></canvas>
+          </div>
+          <div class="flex flex-col justify-center">
+            <div class="flex items-center gap-2">
+              <span class="status-dot"></span>
+              <span class="meta text-accent-ink font-semibold tracking-wider text-[0.75rem]">MASCOT</span>
+              <span class="meta text-ink-soft text-[0.68rem] border border-hairline px-1.5 py-0.5 rounded-[2px]">ORBITING</span>
+            </div>
+            <p class="meta text-ink-soft text-[0.78rem] mt-1 transition-colors group-hover:text-ink font-mono" id="mascot-quote">
+              "Stay cool &amp; build systems" 🕶️
+            </p>
+          </div>
+        </div>
+
+        <p class="meta mb-6 text-accent-ink">
+          01 — <span>INTRODUCTION</span>
+        </p>
+
+        <!-- Entire Name Hoverable & Expanding (Never wrapping 'r' on mobile) -->
+        <div class="inline-block max-w-full overflow-visible">
+          <h1 class="display display-hero text-hero font-normal text-ink cursor-pointer select-none transition-transform duration-300 ease-out will-change-transform group whitespace-nowrap" id="hero-title" data-cursor="VIEW">
+            <span class="sr-only">Shiv Kumar</span>
+            <span class="block pb-[0.06em]">
+              <span aria-hidden="true" class="hero-glyphs inline-flex flex-nowrap whitespace-nowrap items-baseline transition-transform duration-300 ease-out group-hover:translate-x-3">
+                <span class="inline-flex flex-nowrap whitespace-nowrap">
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">S</span>
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">h</span>
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">i</span>
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">v</span>
+                </span>
+                <span class="inline-block w-[0.24em]">&nbsp;</span>
+                <span class="inline-flex flex-nowrap whitespace-nowrap">
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">K</span>
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">u</span>
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">m</span>
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">a</span>
+                  <span data-glyph="true" class="hero-letter inline-block transition-all duration-300 font-variation-wght" style="font-variation-settings: 'wght' 380;">r</span>
+                </span>
+              </span>
+            </span>
+          </h1>
+        </div>
+
+        <div class="mt-8 grid grid-cols-4 gap-4 md:mt-12 md:grid-cols-12">
+          <div class="col-span-4 md:col-span-5">
+            <div class="overflow-hidden">
+              <p class="meta-md text-accent-ink" id="hero-status-line">computer science · cloud computing · java</p>
+            </div>
+            <p class="prose-measure mt-4 max-w-[38ch] text-base sm:text-lg leading-relaxed text-ink-soft" id="hero-tagline">
+              Hello everyone! I study Computer Science specialized in Cloud Computing at Techno India University. I work on Java projects, software development, and build software for data and systems.
+            </p>
+          </div>
+          <div class="col-span-4 flex w-full items-center justify-between pt-2 sm:gap-8 md:col-span-7 md:w-auto md:justify-end md:items-end md:gap-16 lg:gap-24 md:pt-0">
+            <a href="#work" class="u-link meta text-ink"><span>SELECTED WORK</span> ↓</a>
+            <a href="https://github.com/shivkumar077?tab=repositories" target="_blank" rel="noopener noreferrer" id="hero-archive-btn" class="u-link meta text-ink-soft cursor-pointer text-right"><span>EVERYTHING ELSE</span> →</a>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden="true" class="meta pointer-events-none absolute bottom-6 hidden items-center gap-2 text-ink-label md:flex" style="left: var(--spacing-margin);">
+        <span class="block h-px w-8 bg-hairline"></span><span>SCROLL</span>
+      </div>
+    </section>
+
+
+    <!-- 02 WORK SECTION -->
+    <section id="work" aria-labelledby="work-heading" class="relative px-margin py-section">
+      <span id="work-heading" class="sr-only">Selected work</span>
+      <div class="mb-14 md:mb-20">
+        <div class="mb-8 h-px" aria-hidden="true">
+          <div class="h-px origin-left bg-hairline w-full"></div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 md:grid-cols-12">
+          <div class="col-span-1 md:col-span-2">
+            <div class="overflow-hidden"><span class="meta text-accent-ink">02</span></div>
+          </div>
+          <div class="col-span-3 md:col-span-7">
+            <h2 class="terminal-heading text-ink font-medium" id="heading-work" data-scramble="SELECTED WORK">SELECTED WORK</h2>
+          </div>
+          <div class="col-span-4 self-end pb-[0.3em] md:col-span-3 md:text-right">
+            <div class="overflow-hidden"><span class="meta text-ink-soft">2 FLAGSHIP SYSTEMS</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work Flagship Items List -->
+      <div id="work-list" role="list" class="border-b border-hairline"></div>
+
+      <div class="mt-8 flex justify-end">
+        <a href="https://github.com/shivkumar077?tab=repositories" target="_blank" rel="noopener noreferrer" id="work-archive-btn" class="u-link meta text-ink-soft cursor-pointer" data-cursor="OPEN">
+          <span>EVERYTHING ELSE</span> →
+        </a>
+      </div>
+    </section>
+
+
+    <!-- 03 EXPERIENCE SECTION -->
+    <section id="experience" aria-labelledby="experience-heading" class="px-margin py-section">
+      <span id="experience-heading" class="sr-only">Experience</span>
+      <div class="mb-14 md:mb-20">
+        <div class="mb-8 h-px" aria-hidden="true">
+          <div class="h-px origin-left bg-hairline w-full"></div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 md:grid-cols-12">
+          <div class="col-span-1 md:col-span-2">
+            <div class="overflow-hidden"><span class="meta text-accent-ink">03</span></div>
+          </div>
+          <div class="col-span-3 md:col-span-7">
+            <h2 class="terminal-heading text-ink font-medium" id="heading-experience" data-scramble="EXPERIENCE">EXPERIENCE</h2>
+          </div>
+          <div class="col-span-4 self-end pb-[0.3em] md:col-span-3 md:text-right">
+            <div class="overflow-hidden"><span class="meta text-ink-soft">ROLES &amp; INSTITUTIONS</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Accordion List -->
+      <div id="experience-list" class="border-b border-hairline"></div>
+
+
+    </section>
+
+
+    <!-- 04 ABOUT SECTION -->
+    <section id="about" aria-labelledby="about-heading" class="px-margin py-section">
+      <span id="about-heading" class="sr-only">About</span>
+      <div class="mb-14 md:mb-20">
+        <div class="mb-8 h-px" aria-hidden="true">
+          <div class="h-px origin-left bg-hairline w-full"></div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 md:grid-cols-12">
+          <div class="col-span-1 md:col-span-2">
+            <div class="overflow-hidden"><span class="meta text-accent-ink">04</span></div>
+          </div>
+          <div class="col-span-3 md:col-span-7">
+            <h2 class="terminal-heading text-ink font-medium" id="heading-about" data-scramble="ABOUT">ABOUT</h2>
+          </div>
+          <div class="col-span-4 self-end pb-[0.3em] md:col-span-3 md:text-right">
+            <div class="overflow-hidden"><span class="meta text-ink-soft">BIDHANNAGAR, SECTOR V, KOLKATA</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Grid: Left 7 cols for large headline + bio, Right 4 cols for photo + tabs -->
+      <div id="about-content-grid" class="grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-12">
+        <div class="col-span-4 md:col-span-7">
+          <div>
+            <p class="about-pop-lead display text-[clamp(1.75rem,3.4vw,3rem)] font-normal leading-[1.15] text-ink" id="about-lead">
+              Computer Science, cloud infrastructure, and machine learning. I'm interested in what happens when ideas meet <em class="text-accent-ink italic font-normal">real-world constraints</em> — when systems have to scale, algorithms have to prove themselves, and software has to work beyond the demo. Most of what I build is an attempt to explore those boundaries in public.
+            </p>
+          </div>
+          <div class="mt-8">
+            <p class="about-pop-bio max-w-[58ch] leading-relaxed text-ink-soft" id="about-secondary-bio" style="font-size: calc(0.9375rem + 2px);">
+              Right now that means pursuing Computer Science specialized in Cloud Computing at Techno India University, developing high-throughput Java systems, order matching engines, and telemetry platforms. Alongside coursework I design and ship software — evaluation tooling, cloud microservices, simulations — because a system you have deployed is harder to fool yourself about than one you have only described.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-span-4 md:col-span-4 md:col-start-9">
+          <!-- Portrait Picture Container -->
+          <figure id="about-photo-card" class="about-pop-card mb-8 m-0">
+            <div class="border border-hairline bg-paper-raised p-1.5 shadow-sm transition-transform duration-300 hover:scale-[1.01]">
+              <img id="about-photo" src="/assets/profile1.jpg" alt="Shiv Kumar" width="400" height="500" class="block h-auto w-full object-cover object-[center_20%] aspect-[4/5] bg-paper-raised" onerror="this.onerror=null; this.src='/assets/profile.jpg';" />
+            </div>
+            <figcaption class="meta mt-2 flex flex-wrap items-baseline justify-between gap-2 text-ink-label">
+              <span>SHIV KUMAR</span>
+              <span>BIDHANNAGAR, SECTOR V, KOLKATA</span>
+            </figcaption>
+          </figure>
+
+          <!-- Interactive Tabs -->
+          <div id="about-tabs-card" class="about-pop-card">
+            <div class="grid grid-cols-3 gap-2" role="tablist" aria-label="About fragments" id="about-tab-buttons"></div>
+            <div class="rule mt-6 pt-6" aria-live="polite">
+              <p class="prose-measure text-[0.9375rem] leading-relaxed text-ink-soft" id="about-tab-content"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 05 CONTACT / FOOTER -->
+    <footer id="contact" aria-label="Contact" class="px-margin pb-10 pt-section">
+      <div class="rule mb-16 md:mb-24 h-px bg-hairline" aria-hidden="true"></div>
+      <p class="meta mb-8 text-accent-ink">05 — <span>CONTACT</span></p>
+
+      <h2 class="display font-medium text-ink leading-none" id="contact-headline">
+        <div class="contact-headline-row">
+          <div class="contact-headline-mask overflow-hidden">
+            <span class="contact-headline-text block text-[clamp(2.75rem,8vw,7.5rem)] tracking-tight">LET’S BUILD</span>
+          </div>
+        </div>
+
+        <div class="contact-headline-row mt-3 md:mt-4">
+          <div class="contact-headline-mask overflow-hidden">
+            <span class="contact-headline-text block text-[clamp(2.75rem,8vw,7.5rem)] tracking-tight">SOMETHING</span>
+          </div>
+        </div>
+
+        <div class="contact-headline-row mt-3 md:mt-4">
+          <div class="contact-headline-mask overflow-hidden">
+            <span class="contact-headline-text block text-[clamp(2.75rem,8vw,7.5rem)] tracking-tight">
+              <em class="text-accent-ink not-italic">INTERESTING.</em>
+            </span>
+          </div>
+        </div>
+      </h2>
+
+      <div class="mt-14 grid grid-cols-4 gap-x-4 gap-y-10 md:mt-20 md:grid-cols-12">
+        <div class="col-span-4 md:col-span-5">
+          <!-- Magnetic Button -->
+          <div class="inline-block" id="magnetic-email-container">
+            <a href="mailto:shivkumar6990655@gmail.com" data-cursor="OPEN" id="magnetic-email-btn" class="group inline-flex items-baseline gap-3 border border-ink px-6 py-4 transition-colors duration-200 hover:bg-ink hover:text-paper active:scale-[0.98]">
+              <span class="meta-md font-medium">shivkumar6990655@gmail.com</span>
+              <span aria-hidden="true" class="transition-transform duration-200 group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-span-2 md:col-span-3 md:col-start-7">
+          <nav aria-label="Social links" class="flex flex-col gap-3">
+            <a href="https://x.com/nightcore_077" target="_blank" rel="noopener noreferrer" class="u-link meta w-fit text-ink">X ↗</a>
+            <a href="mailto:shivkumar6990655@gmail.com" class="u-link meta w-fit text-ink">EMAIL</a>
+            <a href="https://github.com/shivkumar077" target="_blank" rel="noopener noreferrer" class="u-link meta w-fit text-ink">GITHUB ↗</a>
+            <a href="https://www.linkedin.com/in/shiv-kumar-399a32231/" target="_blank" rel="noopener noreferrer" class="u-link meta w-fit text-ink">LINKEDIN ↗</a>
+            <a href="https://www.instagram.com/nightcore_077/" target="_blank" rel="noopener noreferrer" class="u-link meta w-fit text-ink">INSTAGRAM ↗</a>
+          </nav>
+        </div>
+
+        <div class="col-span-2 md:col-span-3 md:col-start-10">
+          <div class="meta flex flex-col gap-2 text-ink-soft md:items-end md:text-right">
+            <span>BIDHANNAGAR, SECTOR V, KOLKATA</span>
+            <span class="flex items-start gap-2 md:flex-row-reverse">
+              <span class="status-dot mt-[0.45em]" aria-hidden="true"></span>
+              <span class="md:text-right">OPEN TO INTERNSHIP OPPORTUNITIES</span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule mt-20 flex flex-col gap-2 pt-5 md:flex-row md:items-baseline md:justify-between border-t border-hairline">
+        <span class="meta text-ink-label text-xs">© 2026 SHIV KUMAR — DESIGNED &amp; BUILT AS A WORKING SURFACE</span>
+        <span class="meta text-ink-label text-xs">v1.1 · UPDATED 2026-10 · TYPE: FRAUNCES / INSTRUMENT / SPLINE</span>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

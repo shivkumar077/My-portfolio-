@@ -1,0 +1,57 @@
+[
+  {
+    "index": "E-01",
+    "period": "2024 — PRESENT",
+    "org": "Techno India University",
+    "title": "B.Tech in Computer Science & Engineering (Cloud Computing)",
+    "location": "Kolkata, India",
+    "summary": "Undergraduate engineering degree in Computer Science and Engineering with a specialization in Cloud Computing.",
+    "contributions": [
+      "Specializing in Cloud Computing architectures, scalable backend systems, and distributed infrastructure",
+      "Coursework in Java Enterprise Development, Operating Systems, Database Management Systems, and Computer Networks"
+    ],
+    "tech": [
+      "Cloud Computing",
+      "Java",
+      "Computer Science",
+      "Distributed Systems",
+      "Spring Boot"
+    ]
+  },
+  {
+    "index": "E-02",
+    "period": "2021 — 2023",
+    "org": "Bright Career School",
+    "title": "High School (Class 11th — 12th) · PCM",
+    "location": "Kolkata, India",
+    "summary": "Higher secondary education specializing in Physics, Chemistry, and Mathematics (PCM).",
+    "contributions": [
+      "Completed Class 11th and 12th higher secondary education in the Science stream",
+      "Rigorous coursework in Physics, Chemistry, and Mathematics (PCM)"
+    ],
+    "tech": [
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "PCM"
+    ]
+  },
+  {
+    "index": "E-03",
+    "period": "2013 — 2021",
+    "org": "Mount Zion School",
+    "title": "Middle & Secondary School (Class 3rd — 10th)",
+    "location": "Kolkata, India",
+    "summary": "Completed foundational and secondary schooling from Class 3rd through Class 10th, establishing strong core foundations in mathematics, science, and computing.",
+    "contributions": [
+      "Completed foundational curriculum from Class 3rd through Class 10th at Mount Zion School",
+      "Developed early interest and fundamentals in mathematics, analytical sciences, and computers"
+    ],
+    "tech": [
+      "Mathematics",
+      "Science",
+      "Computer Fundamentals",
+      "Secondary Education"
+    ]
+  }
+]

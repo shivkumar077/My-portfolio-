@@ -1,0 +1,42 @@
+[
+  {
+    "index": "R-01",
+    "year": "2024",
+    "title": "An Interactive and Helpful Program to Help Foreign Language Learners Learn New Languages through Videos",
+    "field": "NLP / Education",
+    "venue": "Association for Digital NLP · 17 April 2024",
+    "status": "PUBLISHED",
+    "abstractFragment": "An interactive, video-based language-learning application covering three languages, with a ten-page paper evaluating its design, methodology, and simulated learning results. Selected as one of three student speakers and one of nine student authors at ADNLP 2024; the paper was later selected for special-issue publication.",
+    "detail": "Lead speaker · one of nine student authors"
+  },
+  {
+    "index": "R-02",
+    "year": "2024",
+    "title": "ForeignLanguagePro — Interactive Language Learning Application",
+    "field": "NLP / Applied ML",
+    "venue": "United States patent",
+    "status": "PATENT",
+    "abstractFragment": "A U.S. patent covering the interactive language-learning application and its underlying natural-language-processing methods.",
+    "detail": "Issued 7 May 2024"
+  },
+  {
+    "index": "R-03",
+    "year": "2026",
+    "title": "Tensor Decomposition for Chatbot Response Classification",
+    "field": "ML / Evaluation",
+    "venue": "University of California, Riverside",
+    "status": "COMPLETED",
+    "abstractFragment": "Applied tensor and CP decomposition to classify AI-generated responses from university chatbot interactions, evaluating contextual accuracy across student inquiry categories and identifying performance trends in information retrieval and response specificity.",
+    "detail": "Undergraduate Researcher · Jan – Jun 2026"
+  },
+  {
+    "index": "R-04",
+    "year": "2025 — 2026",
+    "title": "Reward Modeling & Faithfulness Evaluation for LLM Systems",
+    "field": "ML / Evaluation",
+    "venue": "William and Barbara Leonard Transportation Center",
+    "status": "COMPLETED",
+    "abstractFragment": "Reward-modeling pipelines and evaluation frameworks for chatbot systems, measuring confidence calibration and faithfulness of LLM-generated outputs, with automated experiments assessing model truthfulness under varying prompts and conversational contexts.",
+    "detail": "Undergraduate Research Assistant · Oct 2025 – Sep 2026"
+  }
+]

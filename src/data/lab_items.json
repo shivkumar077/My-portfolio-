@@ -1,0 +1,51 @@
+[
+  {
+    "index": "L-01",
+    "tag": "SIMULATION",
+    "title": "200",
+    "description": "An artificial society of 200 isolated agents on a 96×72 grid — settlement patterns emerge, nobody is scripted.",
+    "link": "https://200-society.vercel.app"
+  },
+  {
+    "index": "L-02",
+    "tag": "CAUSAL ENGINE",
+    "title": "One Degree",
+    "description": "A butterfly-effect engine: change one degree, watch causality propagate. Guarded by a 172-test invariant suite.",
+    "link": "https://one-degree-engine.vercel.app"
+  },
+  {
+    "index": "L-03",
+    "tag": "INTERACTION",
+    "title": "Kinetic",
+    "description": "A camera-only hand-tracking game controller — your hands become the gamepad, no hardware.",
+    "link": null
+  },
+  {
+    "index": "L-04",
+    "tag": "SIMULATION",
+    "title": "Genesis",
+    "description": "An artificial civilization of ~110 citizens with emergent daily lives, running in 3D in the browser.",
+    "link": "https://genesis-kappa-five.vercel.app"
+  },
+  {
+    "index": "L-05",
+    "tag": "TINY APP",
+    "title": "Pixel Garden",
+    "description": "A single-file habit tracker where consistency grows pixel-art plants. Local dates only — a rule learned the hard way.",
+    "link": "https://pixel-garden-inky.vercel.app"
+  },
+  {
+    "index": "L-06",
+    "tag": "SIMULATION",
+    "title": "Reality Fork",
+    "description": "An alternate-life simulator: fork your timeline at a decision and walk the branch in 3D.",
+    "link": "https://reality-fork.vercel.app"
+  },
+  {
+    "index": "L-07",
+    "tag": "TINY APP",
+    "title": "Chibi Links",
+    "description": "A serverless URL shortener in a single file, with a 26-check Playwright suite guarding it.",
+    "link": "https://chibi-links-topaz.vercel.app"
+  }
+]

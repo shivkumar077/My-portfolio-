@@ -1,0 +1,39 @@
+{
+  "name": "Shiv Kumar",
+  "monogram": "SK",
+  "email": "shivkumar6990655@gmail.com",
+  "coordinates": "22.5804° N, 88.4378° E",
+  "location": "Bidhannagar, Sector V, Kolkata",
+  "statusLine": "computer science · cloud computing · java",
+  "tagline": "Hello everyone! I study Computer Science specialized in Cloud Computing at Techno India University. I work on Java projects, software development, and build software for data and systems.",
+  "aboutBio": "Computer Science, cloud infrastructure, and machine learning. I'm interested in what happens when ideas meet real-world constraints — when systems have to scale, algorithms have to prove themselves, and software has to work beyond the demo. Most of what I build is an attempt to explore those boundaries in public.",
+  "aboutFragments": [
+    {
+      "label": "RESEARCH",
+      "body": "Cloud computing systems, distributed infrastructure, and machine-learning evaluation pipelines. Exploring container orchestration, performance benchmarking, and cloud-native backend architectures."
+    },
+    {
+      "label": "BUILDING",
+      "body": "Software projects across Java enterprise frameworks, cloud computing microservices, and web platforms. Focused on high-availability systems, clean code, and practical tooling."
+    },
+    {
+      "label": "SYSTEMS",
+      "body": "Cloud architectures, virtualized computing environments, database optimization, and scalable backend pipelines designed for predictable throughput and operational reliability."
+    }
+  ],
+  "socials": [
+    { "label": "X ↗", "url": "https://x.com/nightcore_077" },
+    { "label": "EMAIL", "url": "mailto:shivkumar6990655@gmail.com" },
+    { "label": "GITHUB ↗", "url": "https://github.com/shivkumar077" },
+    { "label": "LINKEDIN ↗", "url": "https://www.linkedin.com/in/shiv-kumar-399a32231/" },
+    { "label": "INSTAGRAM ↗", "url": "https://www.instagram.com/nightcore_077/" }
+  ],
+  "lastUpdated": "2026-10",
+  "education": {
+    "period": "2024 — PRESENT",
+    "school": "Techno India University",
+    "degree": "Bachelor of Technology · Computer Science & Engineering (Specialization in Cloud Computing)",
+    "courses": "CLOUD COMPUTING ARCHITECTURES · JAVA ENTERPRISE DEVELOPMENT · DISTRIBUTED SYSTEMS · OPERATING SYSTEMS · DATABASE MANAGEMENT SYSTEMS · COMPUTER NETWORKS · OBJECT-ORIENTED PROGRAMMING",
+    "honors": "CLOUD COMPUTING SPECIALIZATION · JAVA BACKEND ENGINEERING · DEVOPS & CONTAINERIZATION"
+  }
+}

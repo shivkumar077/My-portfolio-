@@ -1,0 +1,19 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1040" />
+      <stop offset="100%" stop-color="#0f0724" />
+    </linearGradient>
+    <radialGradient id="aurora" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#9d6bff" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#2fd4c8" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#ff5fc4" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#skyGrad)" />
+  <rect width="400" height="400" fill="url(#aurora)" />
+  <circle cx="200" cy="160" r="64" fill="#2e2050" stroke="#7b3fe4" stroke-width="2" />
+  <circle cx="200" cy="150" r="32" fill="#c3a5ff" opacity="0.8" />
+  <path d="M120 310 C120 240, 280 240, 280 310 Z" fill="#2e2050" stroke="#7b3fe4" stroke-width="2" />
+  <text x="200" y="360" font-family="monospace" font-size="12" fill="#a99cc9" text-anchor="middle" letter-spacing="3">SHIV KUMAR · PORTRAIT</text>
+</svg>

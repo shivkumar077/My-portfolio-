@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0d1114" />
+  <meta name="color-scheme" content="dark light" />
+
+  <title>404 — Sector Not Found | Shiv Kumar</title>
+  <meta name="description" content="404 — The coordinates you navigated to do not exist. Return to Shiv Kumar's portfolio." />
+
+  <!-- Portfolio Mascot Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/styles.css" />
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t || t === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <style>
+    .mascot-float {
+      animation: mascotHover 3.4s ease-in-out infinite;
+    }
+    @keyframes mascotHover {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+    .glitch-code {
+      font-family: var(--font-spline-mono), monospace;
+      text-shadow: 0 0 12px rgba(157, 107, 255, 0.45);
+    }
+  </style>
+</head>
+<body class="antialiased font-normal text-ink selection:bg-accent/20 min-h-dvh flex flex-col justify-between overflow-x-hidden">
+
+  <!-- Background Sky & Celestial Canvas -->
+  <div id="bg-sky" class="pointer-events-none fixed inset-0 z-0" aria-hidden="true"></div>
+  <canvas id="stars-canvas" aria-hidden="true" class="pointer-events-none fixed inset-0 z-0 opacity-75"></canvas>
+
+  <!-- Top Navigation Header -->
+  <header class="relative z-20 flex items-center justify-between px-margin py-5 border-b border-hairline/40">
+    <a href="/" class="display text-lg font-semibold tracking-tight text-ink cursor-pointer" aria-label="Shiv Kumar, Home">
+      SK<span class="text-accent">.</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <button type="button" id="theme-btn" class="meta cursor-pointer text-ink-soft transition-colors hover:text-ink">
+        LIGHT
+      </button>
+      <a href="/" class="meta text-accent-ink hover:underline">
+        PORTFOLIO ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- 404 Main Content Stream -->
+  <main class="relative z-10 flex-1 flex flex-col justify-center items-center px-margin py-12 text-center max-w-3xl mx-auto">
+    
+    <!-- Floating Mascot -->
+    <div class="mb-6 relative cursor-pointer select-none group" id="mascot-404-container" title="Click me to beam back!">
+      <div class="w-32 h-32 sm:w-40 sm:h-40 mascot-float relative mx-auto">
+        <canvas id="mascot-404-canvas" width="200" height="200" class="w-full h-full block transform transition-transform duration-300 group-hover:scale-110 active:scale-95"></canvas>
+      </div>
+
+      <!-- Speech bubble badge -->
+      <div class="inline-flex items-center gap-2 mt-4 px-3 py-1.5 rounded-full border border-hairline bg-paper-raised/80 backdrop-blur-md shadow">
+        <span class="status-dot"></span>
+        <span class="meta text-[0.75rem] text-ink-soft font-mono" id="mascot-404-msg">
+          "404: Coordinates lost in deep space" 🕶️
+        </span>
+      </div>
+    </div>
+
+    <!-- Error Code & Header -->
+    <p class="meta glitch-code text-accent-ink tracking-widest text-sm mb-3">
+      ERROR // HTTP 404: UNRESOLVED_ORBIT
+    </p>
+
+    <h1 class="display font-medium text-ink text-4xl sm:text-6xl md:text-7xl tracking-tight leading-none mb-6">
+      Sector Not Found.
+    </h1>
+
+    <p class="prose-measure max-w-[48ch] text-ink-soft text-base sm:text-lg leading-relaxed mb-10 mx-auto">
+      The trajectory you navigated to does not exist in this sector. The page may have been decommissioned, hyper-jumped, or never existed in the ledger.
+    </p>
+
+    <!-- Navigation CTA Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-4 w-full">
+      <a href="/" class="group inline-flex items-center gap-3 border border-ink bg-ink px-6 py-3.5 text-paper transition-all duration-200 hover:bg-transparent hover:text-ink active:scale-[0.98]">
+        <span aria-hidden="true" class="transition-transform duration-200 group-hover:-translate-x-1">←</span>
+        <span class="meta-md font-medium">RETURN TO HOMEPAGE</span>
+      </a>
+
+      <a href="/#work" class="inline-flex items-center gap-2 border border-hairline px-6 py-3.5 text-ink transition-colors duration-200 hover:bg-paper-raised active:scale-[0.98]">
+        <span class="meta-md">VIEW SELECTED WORK</span>
+        <span aria-hidden="true" class="text-accent-ink">↓</span>
+      </a>
+
+      <a href="https://github.com/shivkumar077" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-hairline px-6 py-3.5 text-ink-soft transition-colors duration-200 hover:text-ink hover:border-ink-soft active:scale-[0.98]">
+        <span class="meta-md">GITHUB</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer status -->
+  <footer class="relative z-20 flex flex-col sm:flex-row items-center justify-between px-margin py-5 border-t border-hairline/40 text-center gap-2">
+    <span class="meta text-ink-soft text-[0.72rem]">
+      22.5804° N, 88.4378° E // BIDHANNAGAR, KOLKATA
+    </span>
+    <span class="meta text-ink-label text-[0.72rem]">
+      SYSTEM STATUS: 100% OPERATIONAL
+    </span>
+  </footer>
+
+  <!-- 404 Mascot & Theme Interactive Engine -->
+  <script>
+    (function () {
+      // 1. Theme Toggle
+      var currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      var themeBtn = document.getElementById('theme-btn');
+      function updateThemeBtn() {
+        if (themeBtn) themeBtn.textContent = currentTheme === 'dark' ? 'LIGHT' : 'DARK';
+      }
+      updateThemeBtn();
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function () {
+          currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', currentTheme);
+          localStorage.setItem('theme', currentTheme);
+          updateThemeBtn();
+        });
+      }
+
+      // 2. Stars Canvas for 404
+      var starCanvas = document.getElementById('stars-canvas');
+      if (starCanvas) {
+        var sctx = starCanvas.getContext('2d');
+        function resizeStars() {
+          starCanvas.width = window.innerWidth;
+          starCanvas.height = window.innerHeight;
+          drawStars();
+        }
+        function drawStars() {
+          sctx.clearRect(0, 0, starCanvas.width, starCanvas.height);
+          sctx.fillStyle = currentTheme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(123, 63, 228, 0.5)';
+          for (var i = 0; i < 90; i++) {
+            var x = (Math.sin(i * 997) * 0.5 + 0.5) * starCanvas.width;
+            var y = (Math.cos(i * 641) * 0.5 + 0.5) * starCanvas.height;
+            var r = (i % 3 === 0) ? 1.5 : 0.8;
+            sctx.beginPath();
+            sctx.arc(x, y, r, 0, Math.PI * 2);
+            sctx.fill();
+          }
+        }
+        window.addEventListener('resize', resizeStars);
+        resizeStars();
+      }
+
+      // 3. Interactive Mascot Engine on 404
+      var mCanvas = document.getElementById('mascot-404-canvas');
+      var mContainer = document.getElementById('mascot-404-container');
+      var mMsg = document.getElementById('mascot-404-msg');
+      if (mCanvas) {
+        var mctx = mCanvas.getContext('2d');
+        var quotes = [
+          '"404: Coordinates lost in deep space" 🕶️',
+          '"Even my sunglasses can\'t find this sector" 🌌',
+          '"Lost in an in-memory black hole" ⚡',
+          '"Let\'s warp back to the home sector!" 🚀',
+          '"Don\'t worry, Shiv\'s code will guide us home" 💻'
+        ];
+        var qIdx = 0;
+        var start = performance.now();
+        var bounce = 0;
+        var bounceVel = 0;
+        var tilt = 0;
+
+        function drawMascot(now) {
+          var w = mCanvas.width;
+          var h = mCanvas.height;
+          mctx.clearRect(0, 0, w, h);
+
+          var elapsed = (now - start) / 1000;
+          bounce += bounceVel;
+          bounceVel *= 0.85;
+          bounceVel -= bounce * 0.18;
+
+          var cx = w / 2;
+          var cy = h / 2 + bounce * 14;
+          var r = w * 0.28;
+
+          // Back ring
+          mctx.save();
+          mctx.translate(cx, cy);
+          mctx.rotate(-0.32 + Math.sin(elapsed * 1.5) * 0.05);
+          mctx.strokeStyle = '#e2c6d8';
+          mctx.globalAlpha = 0.95;
+          mctx.lineWidth = Math.max(3.5, 0.18 * r);
+          mctx.beginPath();
+          mctx.ellipse(0, 0, 1.62 * r, 0.44 * r, 0, 0, Math.PI * 2);
+          mctx.stroke();
+          mctx.restore();
+          mctx.globalAlpha = 1;
+
+          // Planet Body
+          mctx.fillStyle = '#c98fb4';
+          mctx.beginPath();
+          mctx.arc(cx, cy, r, 0, Math.PI * 2);
+          mctx.fill();
+
+          // 3D Shadow
+          mctx.save();
+          mctx.beginPath();
+          mctx.arc(cx, cy, r, 0, Math.PI * 2);
+          mctx.clip();
+          mctx.globalAlpha = 0.45;
+          mctx.fillStyle = '#9a6a89';
+          mctx.beginPath();
+          mctx.arc(cx + 0.52 * r, cy + 0.36 * r, r, 0, Math.PI * 2);
+          mctx.fill();
+          mctx.restore();
+          mctx.globalAlpha = 1;
+
+          // Sunglasses with tilt
+          var eyeSpacing = 0.34 * r;
+          var eyeY = cy - 0.08 * r;
+          var glassW = 0.38 * r;
+          var glassH = 0.22 * r;
+
+          mctx.save();
+          mctx.translate(cx, eyeY);
+          mctx.rotate(tilt + Math.sin(elapsed * 2.8) * 0.03);
+
+          mctx.fillStyle = 'rgba(22, 10, 42, 0.94)';
+          mctx.beginPath();
+          mctx.roundRect(-eyeSpacing - glassW / 2, -glassH / 2, glassW, glassH, 0.35 * glassH);
+          mctx.roundRect(eyeSpacing - glassW / 2, -glassH / 2, glassW, glassH, 0.35 * glassH);
+          mctx.fill();
+
+          mctx.lineWidth = Math.max(2, 0.05 * r);
+          mctx.strokeStyle = 'rgba(22, 10, 42, 0.94)';
+          mctx.beginPath();
+          mctx.moveTo(-eyeSpacing + glassW / 2, 0);
+          mctx.lineTo(eyeSpacing - glassW / 2, 0);
+          mctx.stroke();
+
+          // Glint
+          var glintCycle = (elapsed * 0.9) % 2.5;
+          if (glintCycle < 0.6) {
+            var glintX = -eyeSpacing - glassW * 0.15 + (glintCycle / 0.6) * (glassW * 0.3);
+            mctx.fillStyle = 'rgba(255, 255, 255, 0.85)';
+            mctx.beginPath();
+            mctx.arc(glintX, -glassH * 0.15, 2, 0, Math.PI * 2);
+            mctx.fill();
+          }
+          mctx.restore();
+
+          // Mouth
+          var mouthY = cy + 0.28 * r;
+          mctx.strokeStyle = 'rgba(22, 10, 42, 0.92)';
+          mctx.lineWidth = Math.max(2.2, 0.052 * r);
+          mctx.lineCap = 'round';
+          mctx.beginPath();
+          mctx.arc(cx, mouthY - 0.08 * r, 0.18 * r, 0.18 * Math.PI, 0.82 * Math.PI);
+          mctx.stroke();
+
+          requestAnimationFrame(drawMascot);
+        }
+        requestAnimationFrame(drawMascot);
+
+        if (mContainer) {
+          mContainer.addEventListener('click', function () {
+            bounceVel = -2.0;
+            tilt = (Math.random() > 0.5 ? 1 : -1) * 0.25;
+            setTimeout(function () { tilt = 0; }, 350);
+            qIdx = (qIdx + 1) % quotes.length;
+            if (mMsg) mMsg.textContent = quotes[qIdx];
+          });
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

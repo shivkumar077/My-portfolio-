@@ -1,0 +1,145 @@
+[
+  {
+    "slug": "shadow-exchange",
+    "index": "W-01",
+    "title": "Shadow Exchange",
+    "description": "A simulated institutional equities exchange and dark market terminal built to replicate the microstructure of modern alternative trading systems (ATS), with sub-millisecond in-memory matching, hidden liquidity crossing, and live Level-2 STOMP WebSockets.",
+    "role": "Systems & Backend Engineer",
+    "year": "2026",
+    "status": "LIVE",
+    "category": "Financial engineering",
+    "simTag": "ORDERBOOK.SIM",
+    "tech": [
+      "Java 21",
+      "Spring Boot 3.4",
+      "React 18",
+      "TypeScript",
+      "Neon PostgreSQL",
+      "STOMP WebSocket"
+    ],
+    "metric": "168 Automated Tests · 28 Instruments · In-Memory FIFO Matching Engine",
+    "preview": "shadow-exchange",
+    "links": {
+      "live": "https://shadow-exchange-live.vercel.app/",
+      "github": "https://github.com/shivkumar077/Shadow-Exchange"
+    },
+    "caseStudy": {
+      "sections": [
+        {
+          "id": "s01",
+          "num": "01",
+          "title": "Overview",
+          "body": "Shadow Exchange is a simulated institutional equities exchange and dark pool terminal engineered to model the microstructure of modern electronic communication networks (ECNs) and alternative trading systems (ATS). The core engine runs an in-memory price-time priority (FIFO) order book capable of continuous limit order matching, crossing dark liquidity pools, and broadcasting tick-by-tick market state over persistent WebSockets."
+        },
+        {
+          "id": "s02",
+          "num": "02",
+          "title": "Problem",
+          "body": "Most simulated exchange projects quietly cheat: they use client-side timers that generate random numbers without maintaining real order book state, completely ignore FIFO price-time queue priority, and fail to enforce basic balance invariants. Knowing whether an order can execute requires calculating queue position, evaluating crossing liquidity, managing partial fills, and enforcing atomic settlement. An exchange engine that cannot guarantee FIFO invariants under load is not an exchange."
+        },
+        {
+          "id": "s03",
+          "num": "03",
+          "title": "Execution Pipeline",
+          "body": "Incoming orders pass through pre-trade balance validation before entering the matching engine. The engine maintains dual red-black tree indexed price ladders with FIFO linked lists at every tick level, matching continuous limit orders and crossing dark pool institutional blocks at mid-market prices. Level-2 order book depth and tape prints are streamed in real time over STOMP WebSockets, while trade ledgers persist asynchronously to Neon PostgreSQL."
+        },
+        {
+          "id": "s04",
+          "num": "04",
+          "title": "Decisions and Tradeoffs",
+          "body": "We chose an in-memory matching book with asynchronous ledger write-behind rather than synchronous database transactions on every order. Synchronous persistence introduces 15–40ms latency spikes that destroy high-frequency order book throughput. By keeping active books in memory and dispatching fills to background persistence queues, the engine sustains sub-millisecond execution while guaranteeing eventual persistence consistency."
+        },
+        {
+          "id": "s05",
+          "num": "05",
+          "title": "Safety Posture",
+          "body": "Financial engines must prevent negative balance leaks and state corruption under all conditions. All account cash and equity allocations are verified atomically prior to book insertion. Idempotent order routing tokens prevent duplicate orders during client reconnection, and optimistic locking on the settlement ledger guarantees that no account can double-spend margin during rapid market volatility."
+        },
+        {
+          "id": "s06",
+          "num": "06",
+          "title": "Results",
+          "body": "The system is backed by a 168-test automated suite (89 frontend unit/integration tests and 79 backend JUnit 5 / AssertJ / MockMvc suites) validating zero balance leaks, order book consistency, and WebSocket reconnection recovery. The platform streams live depth across 28 liquid instruments with sub-millisecond in-memory execution."
+        },
+        {
+          "id": "s07",
+          "num": "07",
+          "title": "Lesson",
+          "body": "Market microstructure is where clean software architecture meets relentless real-time pressure. Building a genuine trading engine is not about displaying stock charts—it is about guaranteeing deterministic queue invariants and atomicity when hundreds of orders collide at the exact same price tick."
+        }
+      ]
+    }
+  },
+  {
+    "slug": "astra",
+    "index": "W-02",
+    "title": "ASTRA",
+    "description": "A high-fidelity aerospace mission operations console and orbital simulation platform featuring 5 Hz STOMP telemetry streaming, 5-destination Keplerian mechanics propagation, Three.js 3D rendering, and hardware failure injection.",
+    "role": "Lead Systems Architect",
+    "year": "2026",
+    "status": "LIVE",
+    "category": "Aerospace simulation",
+    "simTag": "ORBITAL.SIM",
+    "tech": [
+      "Java 21",
+      "Spring Boot 3.3",
+      "React 18",
+      "TypeScript",
+      "Three.js",
+      "Neon PostgreSQL",
+      "Flyway"
+    ],
+    "metric": "5 Hz Telemetry Streaming · 5 Keplerian Orbital Destinations · 6-Domain Failure Lab",
+    "preview": "astra",
+    "links": {
+      "live": "https://astra-nine-liart.vercel.app/",
+      "github": "https://github.com/shivkumar077/Astra"
+    },
+    "caseStudy": {
+      "sections": [
+        {
+          "id": "s01",
+          "num": "01",
+          "title": "Overview",
+          "body": "ASTRA is an aerospace telemetry streaming and spacecraft operations platform designed for simulated space missions. It couples continuous mathematical orbital mechanics propagation with an interactive 3D WebGL mission control console, streaming real-time attitude quaternions, thermal gradients, propulsion delta-v, and power subsystem telemetry at 5 Hz over STOMP WebSockets."
+        },
+        {
+          "id": "s02",
+          "num": "02",
+          "title": "Problem",
+          "body": "Most web-based space simulations decouple 3D visuals from physical reality, using scripted camera animations that fail to model actual orbital mechanics. Real flight directors require accurate Keplerian state vectors (semi-major axis, eccentricity, inclination, true anomaly), synchronized telemetry feeds, and the ability to diagnose subsystem anomalies during high-stress flight phases."
+        },
+        {
+          "id": "s03",
+          "num": "03",
+          "title": "Telemetry Pipeline",
+          "body": "The simulation core computes deterministic two-body Keplerian mechanics in Java 21, evaluating orbital ephemerides across 5 mission destinations: Low Earth Orbit (LEO), Geostationary (GEO), Lunar Transfer, Mars Hohmann Transit, and Deep Space Escapes. Subsystem state vectors stream at 5 Hz over STOMP WebSockets to a Three.js WebGL viewport that renders precise orbital ellipses, equatorial reference planes, and celestial coordinate axes."
+        },
+        {
+          "id": "s04",
+          "num": "04",
+          "title": "Decisions and Tradeoffs",
+          "body": "We adopted analytical Keplerian orbital element propagation rather than high-order Runge-Kutta numerical integrators. Analytical Keplerian formulations provide exact mathematical solutions that calculate instantaneously at 5 Hz without numerical drift over prolonged simulation sessions, ensuring consistent orbital trajectories across distributed client consoles."
+        },
+        {
+          "id": "s05",
+          "num": "05",
+          "title": "Safety Posture",
+          "body": "Spaceflight operations require rigorous contingency procedures. ASTRA incorporates a 6-domain failure injection laboratory allowing flight controllers to test responses to thermal radiator blockages, solar array articulation failures, reaction wheel desaturation, communications signal loss, and propellant leaks with full telemetry logging in Neon PostgreSQL."
+        },
+        {
+          "id": "s06",
+          "num": "06",
+          "title": "Results",
+          "body": "The platform maintains a rock-solid 5 Hz STOMP telemetry broadcast with zero dropped frames and smooth 60 FPS WebGL 3D rendering. All telemetry schema migrations are version-controlled using Flyway on Neon PostgreSQL, enabling historical telemetry replay and timeline analysis."
+        },
+        {
+          "id": "s07",
+          "num": "07",
+          "title": "Lesson",
+          "body": "In mission-critical aerospace software, the telemetry console is the flight director's only sensory link to the spacecraft. Engineering excellence requires not just visual polish, but physical fidelity, deterministic modeling, and clear diagnostics that empower operators when failures occur."
+        }
+      ]
+    }
+  }
+]

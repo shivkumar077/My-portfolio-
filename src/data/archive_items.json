@@ -1,0 +1,690 @@
+[
+  {
+    "year": "2024",
+    "title": "Language Learning App & Research Paper",
+    "href": null,
+    "category": "RESEARCH",
+    "stack": "NLP · ADNLP 2024 · U.S. PATENT",
+    "status": "BUILT"
+  },
+  {
+    "year": "2024",
+    "title": "IT Salary Prediction",
+    "href": null,
+    "category": "RESEARCH",
+    "stack": "KNN · REGRESSION · 53K RECORDS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Outreach",
+    "href": null,
+    "category": "AI / ML",
+    "stack": "NEXT.JS · AGENTS · POSTGRES",
+    "status": "WIP"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki OS↗",
+    "href": "https://yuuki-os.vercel.app",
+    "category": "AI / ML",
+    "stack": "NEXT.JS · PRIORITY ENGINE",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Factory↗",
+    "href": "https://yuuki-factory.vercel.app",
+    "category": "AI / ML",
+    "stack": "NEXT.JS · FAIL-CLOSED AUTHZ",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Research Engine↗",
+    "href": "https://yuuki-research-engine.vercel.app",
+    "category": "AI / ML",
+    "stack": "NEXT.JS · EVIDENCE-FIRST RETRIEVAL",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Benchmark Arena↗",
+    "href": "https://yuuki-benchmark-arena.vercel.app",
+    "category": "AI / ML",
+    "stack": "NEXT.JS · EVAL HARNESS",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki QA Matrix↗",
+    "href": "https://yuuki-qa-matrix.vercel.app",
+    "category": "AI / ML",
+    "stack": "VERIFICATION ENGINE · DASHBOARD",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Synthetic User Lab↗",
+    "href": "https://yuuki-synthetic-user-lab.vercel.app",
+    "category": "AI / ML",
+    "stack": "PLAYWRIGHT PERSONAS",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Digital Twin",
+    "href": null,
+    "category": "AI / ML",
+    "stack": "NEXT.JS · NEON · COUNTERFACTUALS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "AI Platform↗",
+    "href": "https://api.gariyuuu.com/health",
+    "category": "AI / ML",
+    "stack": "OPENAI-COMPATIBLE GATEWAY · QWEN3",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "F.R.I.D.A.Y.",
+    "href": null,
+    "category": "AI / ML",
+    "stack": "TAURI · VOICE · STREAMING",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Project Lemon",
+    "href": null,
+    "category": "AI / ML",
+    "stack": "NATIVE MACOS · VOICE ASSISTANT",
+    "status": "WIP"
+  },
+  {
+    "year": "2026",
+    "title": "Mindloop",
+    "href": null,
+    "category": "AI / ML",
+    "stack": "ACTIVE-RECALL STUDY APP",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "PromptForge",
+    "href": null,
+    "category": "AI / ML",
+    "stack": "PROMPT-ENGINEERING WORKBENCH",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Knowledge Graph↗",
+    "href": "https://yuuki-knowledge-graph.vercel.app",
+    "category": "DATA",
+    "stack": "POSTGRES · PROVENANCE GRAPH",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Simulation Lab↗",
+    "href": "https://yuuki-simulation-lab.vercel.app",
+    "category": "DATA",
+    "stack": "MONTE CARLO · CONVERSATIONAL UI",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Code Intelligence",
+    "href": null,
+    "category": "DATA",
+    "stack": "SQLITE · EMBEDDINGS · 75 REPOS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Market Brief↗",
+    "href": "https://market-brief-seven.vercel.app",
+    "category": "DATA",
+    "stack": "DAILY MARKET & TECH DIGEST",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "CareerAtlas",
+    "href": null,
+    "category": "DATA",
+    "stack": "CAREER ANALYTICS · NEXT.JS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Edge Terminal↗",
+    "href": "https://edge-terminal-fawn.vercel.app",
+    "category": "QUANT / MARKETS",
+    "stack": "PREDICTION MARKETS · +EV",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Hyperliquid Bot↗",
+    "href": "https://hyperliquid-bot-web-alpha.vercel.app",
+    "category": "QUANT / MARKETS",
+    "stack": "PYTHON · EMA · PAPER-TRADING",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Trading Professor",
+    "href": null,
+    "category": "QUANT / MARKETS",
+    "stack": "STREAMLIT · 191 TESTS · PAPER-ONLY",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "QuantDesk",
+    "href": null,
+    "category": "QUANT / MARKETS",
+    "stack": "NEXT.JS · PYTHON SERVICE",
+    "status": "WIP"
+  },
+  {
+    "year": "2026",
+    "title": "Sports Betting Scanner",
+    "href": null,
+    "category": "QUANT / MARKETS",
+    "stack": "PYTHON · +EV · PUSH NOTIFS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Notes↗",
+    "href": "https://yuuki-notes.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "LOCAL-FIRST PKM · KATEX",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Messenger↗",
+    "href": "https://yuuki-messenger.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "REALTIME MESSAGING",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Social↗",
+    "href": "https://yuuki-social.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "CONSUMER SOCIAL NETWORK",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Files↗",
+    "href": "https://yuuki-files.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "SEMANTIC FILE MANAGER",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Mail↗",
+    "href": "https://yuuki-mail.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "MAIL CLIENT DEMO",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Release Command↗",
+    "href": "https://yuuki-release-command.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "18-GATE CERTIFIER CLI",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yume↗",
+    "href": "https://yume-gray.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "VIRTUAL ROOMS · SUPABASE · LIVEKIT",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Nodability↗",
+    "href": "https://nodability.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "CHAT-DRIVEN TASK ORGANIZER",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Engo↗",
+    "href": "https://engo-peach.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "JP/EN VIDEO STUDY · NEON · CLERK",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Latticework↗",
+    "href": "https://latticework-gilt.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "SWE/QUANT/ML LEARNING PLATFORM",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Fantasy League↗",
+    "href": "https://fantasy-league-iota-six.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "10-SPORT FANTASY PLATFORM",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "DramaBrief↗",
+    "href": "https://dramabrief.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "ASIAN DRAMA & K-POP BRIEFING",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Daily Brief↗",
+    "href": "https://daily-brief-lovat.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "WEATHER · NEWS · MARKETS",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Bite Map↗",
+    "href": "https://bite-map.vercel.app",
+    "category": "SOFTWARE",
+    "stack": "FOOD EXPLORATION OS",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Gariyuuu.com↗",
+    "href": "https://gariyuuu.com",
+    "category": "SOFTWARE",
+    "stack": "PERSONAL SITE + FLEET DASHBOARD",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "AniBrief",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "DAILY ANIME BRIEFING",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Helm",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "LIFE OS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "AtlasYuu",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "TRAVEL COMMAND CENTER",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Application HQ",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "APPLICATION TRACKER",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Together Wellness",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "OURA RING HEALTH SHARING",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Pocket Vlog",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "IOS + WEB DAILY VLOGS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "FitDrop",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "FASHION RENTAL · CLERK · NEON",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Kairo Browser",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "ELECTRON COMMAND-CENTER BROWSER",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Session OS",
+    "href": null,
+    "category": "SOFTWARE",
+    "stack": "VS CODE EXTENSION · SESSION TRACKING",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Everworld↗",
+    "href": "https://everworld-iota.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "THREE.JS · PROCEDURAL",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Timewalker↗",
+    "href": "https://timewalker.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "EDO-1600 INHABITED WORLD",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Chronos↗",
+    "href": "https://chronos-woad-three.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "ALTERNATE-HISTORY ENGINE",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Aetheria: Towerbound↗",
+    "href": "https://aetheria-towerbound.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "100-REALM ANIME-FANTASY RPG",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Second Dawn↗",
+    "href": "https://second-dawn.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "GENERATIONAL CIV SIM",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Genesis↗",
+    "href": "https://genesis-kappa-five.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "ARTIFICIAL CIVILIZATION · ~110 CITIZENS",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Abyss↗",
+    "href": "https://abyss-black-sigma.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "GENERATIVE DUNGEON RPG",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Fluent↗",
+    "href": "https://fluent-taupe-eight.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "3D TOKYO LANGUAGE LIFE-SIM",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Sakura Days↗",
+    "href": "https://sakura-days.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "ANIME SOCIAL-LIFE RPG",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Heartbreak Academy↗",
+    "href": "https://heartbreak-academy.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "UNDERTALE-STYLE RPG",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Buildstrike Arena↗",
+    "href": "https://buildstrike-arena.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "1V1 BUILD-AND-SHOOT · CF WORKERS",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Chamber Seven↗",
+    "href": "https://chamber-seven-omega.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "REALTIME SHOTGUN DUEL",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Unwritten Murder↗",
+    "href": "https://unwritten-murder.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "SIMULATION-FIRST DETECTIVE",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Pocket Party↗",
+    "href": "https://pocket-party-eta.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "MULTIPLAYER MINI-GAMES",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Sound Clash↗",
+    "href": "https://sound-clash-nu.vercel.app",
+    "category": "GAMES / 3D",
+    "stack": "MULTIPLAYER MUSIC GUESSING · ABLY",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Voidshift",
+    "href": null,
+    "category": "GAMES / 3D",
+    "stack": "SOCIAL DEDUCTION",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Vantage Chess",
+    "href": null,
+    "category": "GAMES / 3D",
+    "stack": "STOCKFISH · ORIGINAL MODES",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Puzzle Rush",
+    "href": null,
+    "category": "GAMES / 3D",
+    "stack": "DAILY PUZZLE PLATFORM",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Anime//Sim",
+    "href": null,
+    "category": "GAMES / 3D",
+    "stack": "TWO-WORLD NARRATIVE GAME",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Deckhouse",
+    "href": null,
+    "category": "GAMES / 3D",
+    "stack": "POKER & BLACKJACK HUB",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "200↗",
+    "href": "https://200-society.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "ARTIFICIAL SOCIETY · 200 AGENTS",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "One Degree↗",
+    "href": "https://one-degree-engine.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "CAUSAL ENGINE · 172-TEST SUITE",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Reality Fork↗",
+    "href": "https://reality-fork.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "ALTERNATE-LIFE SIMULATOR · R3F",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Animos↗",
+    "href": "https://project-animos.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "BROWSER MOTION EDITOR",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Lumina↗",
+    "href": "https://lumina-two-rose.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "VIDEO → 3D COMPOSITING EDITOR",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Liveframe↗",
+    "href": "https://liveframe-omega.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "AI PERFORMANCE CAMERA EDITOR",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "SocialCards↗",
+    "href": "https://project-socialcards.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "STATIC EXPORT · CI-ENFORCED",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Desktop↗",
+    "href": "https://yuuki-desktop.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "BROWSER DESKTOP ENVIRONMENT",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Terminal↗",
+    "href": "https://yuuki-terminal.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "VIRTUAL FILESYSTEM · SHELL · ANSI ENGINE",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Complete Shelf↗",
+    "href": "https://project-library.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "3D BOOKSHELF PORTFOLIO",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Pixel Garden↗",
+    "href": "https://pixel-garden-inky.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "SINGLE-FILE HABIT TRACKER",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Chibi Links↗",
+    "href": "https://chibi-links-topaz.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "SINGLE-FILE URL SHORTENER",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Yuu Dashboard↗",
+    "href": "https://yuu-dashboard.vercel.app",
+    "category": "EXPERIMENTAL",
+    "stack": "SINGLE-FILE START PAGE",
+    "status": "LIVE"
+  },
+  {
+    "year": "2026",
+    "title": "Kinetic",
+    "href": null,
+    "category": "EXPERIMENTAL",
+    "stack": "CAMERA HAND-TRACKING CONTROLLER",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Project Messenger",
+    "href": null,
+    "category": "EXPERIMENTAL",
+    "stack": "TINY-PLANET MESSAGING · R3F",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Yuuki Security Lab",
+    "href": null,
+    "category": "EXPERIMENTAL",
+    "stack": "DEFENSIVE APPSEC · DETECTORS",
+    "status": "BUILT"
+  },
+  {
+    "year": "2026",
+    "title": "Phone Watchdog",
+    "href": null,
+    "category": "EXPERIMENTAL",
+    "stack": "PYTHON MONITOR + DASHBOARD",
+    "status": "BUILT"
+  }
+]
