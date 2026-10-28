@@ -3,7 +3,7 @@
 > **Systems & Backend Engineering · Cloud Infrastructure · Distributed Architecture**  
 > Interactive celestial portfolio featuring procedural 60fps canvas engines, real-time Level-2 market microstructure simulations, orbital mechanics, audio feedback, and dark/light cosmological themes.
 
-🌐 **Live Demo:** [portfolio-shivkumar.vercel.app](https://portfolio-shivkumar.vercel.app) *(or your deployed Vercel URL)*
+🌐 **Live Demo:** https://shivkumar-pi.vercel.app/
 
 ---
 
