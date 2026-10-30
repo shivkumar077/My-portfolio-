@@ -141,5 +141,76 @@
         }
       ]
     }
+  },
+  {
+    "slug": "forge-fit",
+    "index": "W-03",
+    "title": "ForgeFit",
+    "description": "A Python-based API resilience testing toolkit and interactive live operations console for controlled latency injection, simulated fault schedules, deadline safety clamping, and automated run comparison.",
+    "role": "Systems & Reliability Engineer",
+    "year": "2026",
+    "status": "LIVE",
+    "category": "Reliability engineering",
+    "simTag": "RESILIENCE.SIM",
+    "tech": [
+      "Python 3.12",
+      "FastAPI",
+      "React 18",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prometheus / OTel"
+    ],
+    "metric": "Deterministic Fault Injection · Dynamic Deadline Clamping · Automated Run Comparison",
+    "preview": "forge-fit",
+    "links": {
+      "live": "https://forge-fit-gilt.vercel.app/",
+      "github": "https://github.com/shivkumar077/ForgeFit"
+    },
+    "caseStudy": {
+      "sections": [
+        {
+          "id": "s01",
+          "num": "01",
+          "title": "Overview",
+          "body": "ForgeFit is an API resilience testing toolkit and real-time execution monitor engineered to simulate service degradation, inject controlled latency patterns, and evaluate application stability under hostile network conditions. Built with a zero-external-dependency Python core and an interactive React operations console, ForgeFit couples deterministic pseudo-random fault schedules with loopback-guarded execution pipelines and automated run comparison engines."
+        },
+        {
+          "id": "s02",
+          "num": "02",
+          "title": "Problem",
+          "body": "Most synthetic load testing and chaos injection tools operate as blunt instruments: they hammer endpoints with uncalibrated concurrency, generate unrepeatable failure rates, and lack deadline awareness. When upstream services degrade, real-world systems suffer cascading thread exhaustion, retry storms, and uncoordinated client timeouts. Verifying resilience requires deterministic schedule replay, socket timeouts that dynamically clamp to remaining execution budgets, and verifiable regression baselines."
+        },
+        {
+          "id": "s03",
+          "num": "03",
+          "title": "Resilience Pipeline",
+          "body": "ForgeFit executes scenarios through an adaptive failure injection pipeline. Scenarios define target endpoints, execution iterations, socket budgets, and adaptive fault schedules—spanning constant rates, step thresholds, and linear ramp progressions. Each dispatch dynamically recalculates socket timeouts against remaining scenario deadlines, records microsecond-resolution latency metrics, categorizes HTTP and socket exceptions, and writes immutable JSON run reports atomically with OS-level fsync guarantees."
+        },
+        {
+          "id": "s04",
+          "num": "04",
+          "title": "Decisions and Tradeoffs",
+          "body": "We designed the core simulation engine using exclusively Python standard library primitives (urllib, threading, json, time) with zero third-party dependencies, reserving FastAPI for optional local web dispatch. While heavy async frameworks like aiohttp offer higher raw concurrency, pure standard library synchronous sequential dispatch guarantees deterministic request ordering, reproducible fault sequences under fixed seeds, and uncompromised portability across offline enterprise runtimes."
+        },
+        {
+          "id": "s05",
+          "num": "05",
+          "title": "Safety Posture",
+          "body": "Chaos engineering in shared or production environments risks severe unintended damage. ForgeFit enforces a strict loopback-by-default boundary: requests to anything outside 127.0.0.1, localhost, and ::1 are rejected with HTTP 403 unless dual explicit authorization flags (--allow-external and --acknowledge-authorized) are provided. In addition, per-request timeouts are dynamically clamped to remaining total budgets, and persisted execution reports strictly omit sensitive headers, authentication tokens, and request/response payloads."
+        },
+        {
+          "id": "s06",
+          "num": "06",
+          "title": "Results",
+          "body": "The platform features comprehensive test coverage validating deterministic step/ramp transitions, atomic report generation, and run comparison algorithms. Reports export seamlessly to Prometheus text exposition format and OpenTelemetry OTLP JSON. The comparison engine computes delta metrics with automated divergence detection (target URL/timeout mismatches) and sample size advisories, providing actionable regression insights."
+        },
+        {
+          "id": "s07",
+          "num": "07",
+          "title": "Lesson",
+          "body": "Reliability is not an accidental property of well-written code—it is an empirical property verified under stress. A testing tool that itself causes unmanaged outages or produces non-reproducible chaos teaches false confidence; genuine resilience engineering demands determinism, strict safety boundaries, and honest baseline comparisons."
+        }
+      ]
+    }
   }
 ]

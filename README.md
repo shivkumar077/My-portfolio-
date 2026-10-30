@@ -14,6 +14,7 @@ Designed and built as an editorial, high-performance portfolio showcasing produc
 * **Flagship Work Showcases**:
   * **Shadow Exchange** — Simulated institutional equities exchange and dark market terminal with sub-millisecond in-memory FIFO matching, hidden liquidity crossing, and live STOMP WebSockets.
   * **Astra** — Autonomous spacecraft trajectory optimization engine using continuous-thrust Pontryagin Maximum Principle (PMP) collocation.
+  * **ForgeFit** — Python API resilience testing toolkit and real-time execution monitor for controlled latency injection, simulated fault schedules, deadline safety clamping, and automated run comparison.
 * **Procedural Canvas Engines**:
   * 60fps celestial starfield, ambient drifting auroras, and planetary bodies with responsive parallax and scroll blur.
   * Interactive Level-2 order book depth ladders and Keplerian orbital vector fields.

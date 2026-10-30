@@ -296,6 +296,262 @@ export const WORK_PREVIEWS = {
     }
   },
 
+  "forge-fit": {
+    warm: 3,
+    maxAspect: null,
+    draw: (ctx, t, bounds, colors, scale) => {
+      const pad = 16 * scale;
+      const left = bounds.x + pad;
+      const right = bounds.x + bounds.w - pad;
+      const top = bounds.y + pad;
+      const bottom = bounds.y + bounds.h - pad;
+      const w = right - left;
+      const h = bottom - top;
+      if (w <= 0 || h <= 0) return;
+
+      const chartTop = top + 26 * scale;
+      const chartBottom = bottom - 26 * scale;
+      const chartH = chartBottom - chartTop;
+
+      // 1. Grid lines and schedule boundary bands
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = colors.soft;
+      ctx.globalAlpha = 0.28;
+
+      // Horizontal latency thresholds
+      for (let i = 1; i <= 3; i++) {
+        const y = chartBottom - (chartH / 4) * i;
+        ctx.beginPath();
+        ctx.moveTo(left, y);
+        ctx.lineTo(right, y);
+        ctx.stroke();
+      }
+
+      // Schedule phases: Phase 1 (Baseline: 0 -> 32%), Phase 2 (Ramped Faults: 32% -> 74%), Phase 3 (Clamped Recovery: 74% -> 100%)
+      const phase1X = left + w * 0.32;
+      const phase2X = left + w * 0.74;
+
+      // Fault injection zone background tint
+      ctx.fillStyle = colors.accent;
+      ctx.globalAlpha = 0.05;
+      ctx.fillRect(phase1X, chartTop, phase2X - phase1X, chartH);
+
+      // Phase divider dashed lines
+      ctx.setLineDash([3 * scale, 3 * scale]);
+      ctx.strokeStyle = colors.soft;
+      ctx.globalAlpha = 0.45;
+      ctx.beginPath();
+      ctx.moveTo(phase1X, chartTop);
+      ctx.lineTo(phase1X, chartBottom);
+      ctx.moveTo(phase2X, chartTop);
+      ctx.lineTo(phase2X, chartBottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.globalAlpha = 1;
+
+      // 2. Deadline Safety Clamp Threshold Line
+      const clampY = chartTop + 14 * scale;
+      ctx.strokeStyle = colors.accent;
+      ctx.lineWidth = 1.6 * scale;
+      ctx.setLineDash([6 * scale, 4 * scale]);
+      ctx.beginPath();
+      ctx.moveTo(left, clampY);
+      ctx.lineTo(right, clampY);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // 3. Adaptive Latency Waveform Curve with area fill
+      const points = 48;
+      const pts = [];
+      const baseY = chartBottom - 10 * scale;
+      const maxRise = baseY - clampY;
+
+      for (let i = 0; i <= points; i++) {
+        const u = i / points;
+        const px = left + u * w;
+        let py = baseY;
+
+        if (u < 0.32) {
+          // Stable baseline zone with small natural latency jitter
+          const jit = Math.sin(1.8 * t + u * 18) * 4 * scale + Math.cos(3.2 * t + u * 24) * 2.5 * scale;
+          py = baseY - 8 * scale + jit;
+        } else if (u < 0.74) {
+          // Escalating fault & latency zone: progressive ramp with step spikes
+          const prog = (u - 0.32) / (0.74 - 0.32);
+          const ramp = Math.pow(prog, 1.4) * maxRise;
+          const jitter = Math.sin(2.5 * t + u * 28) * (8 + prog * 16) * scale + Math.sin(6.1 * t + i * 2.2) * 5 * scale;
+          py = baseY - ramp - jitter;
+        } else {
+          // Clamped recovery zone: clamped horizontally at deadline ceiling with residual turbulence
+          const recoverProg = (u - 0.74) / 0.26;
+          const targetY = clampY + (recoverProg * 0.45 * maxRise);
+          const jitter = Math.sin(1.6 * t + u * 15) * 5 * scale;
+          py = targetY + jitter;
+        }
+
+        // Hard clamp at safety ceiling line (deadline clamp guarantee)
+        if (py < clampY) py = clampY;
+        pts.push({ x: px, y: py, u });
+      }
+
+      // Shaded area under the curve
+      const areaGrad = ctx.createLinearGradient(0, clampY, 0, chartBottom);
+      areaGrad.addColorStop(0, colors.accent);
+      areaGrad.addColorStop(0.7, colors.soft);
+      areaGrad.addColorStop(1, colors.paper);
+      ctx.fillStyle = areaGrad;
+      ctx.globalAlpha = 0.22;
+      ctx.beginPath();
+      ctx.moveTo(left, chartBottom);
+      for (let i = 0; i < pts.length; i++) {
+        ctx.lineTo(pts[i].x, pts[i].y);
+      }
+      ctx.lineTo(right, chartBottom);
+      ctx.closePath();
+      ctx.fill();
+
+      // Main Latency Trace Line
+      ctx.lineWidth = 2.4 * scale;
+      ctx.strokeStyle = colors.accent;
+      ctx.globalAlpha = 0.95;
+      ctx.beginPath();
+      for (let i = 0; i < pts.length; i++) {
+        if (i === 0) ctx.moveTo(pts[i].x, pts[i].y);
+        else ctx.lineTo(pts[i].x, pts[i].y);
+      }
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      // 4. Injected Simulated Fault Markers
+      const faultIndices = [18, 24, 30, 36];
+      for (let f = 0; f < faultIndices.length; f++) {
+        const idx = faultIndices[f];
+        if (idx < pts.length) {
+          const fp = pts[idx];
+          const pulse = (t * 2.2 + f * 0.4) % 1;
+
+          // Expanding fault shockwave ring
+          ctx.strokeStyle = colors.accent;
+          ctx.lineWidth = 1.2;
+          ctx.globalAlpha = 0.85 * (1 - pulse);
+          ctx.beginPath();
+          ctx.arc(fp.x, fp.y, (4 + pulse * 14) * scale, 0, Math.PI * 2);
+          ctx.stroke();
+
+          // Fault diamond marker
+          ctx.globalAlpha = 0.95;
+          ctx.fillStyle = colors.accent;
+          ctx.save();
+          ctx.translate(fp.x, fp.y);
+          ctx.rotate(Math.PI / 4);
+          const sz = 4.5 * scale;
+          ctx.fillRect(-sz / 2, -sz / 2, sz, sz);
+          ctx.restore();
+
+          // Fault classification label
+          if (scale >= 1.0) {
+            ctx.fillStyle = colors.accent;
+            ctx.font = `${Math.max(8, Math.round(8 * scale))}px monospace`;
+            ctx.textAlign = "center";
+            ctx.fillText(f % 2 === 0 ? "504 TO" : "500 ERR", fp.x, fp.y - 8 * scale);
+          }
+        }
+      }
+      ctx.globalAlpha = 1;
+
+      // 5. Active Probe Playhead
+      const playSpeed = 0.14;
+      const playheadProgress = (t * playSpeed) % 1;
+      const playheadX = left + playheadProgress * w;
+
+      const pIdx = Math.min(pts.length - 2, Math.max(0, Math.floor(playheadProgress * (pts.length - 1))));
+      const frac = playheadProgress * (pts.length - 1) - pIdx;
+      const probeY = pts[pIdx].y + (pts[pIdx + 1].y - pts[pIdx].y) * frac;
+
+      // Vertical scanner cursor line
+      ctx.strokeStyle = colors.accent;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = 0.4;
+      ctx.beginPath();
+      ctx.moveTo(playheadX, chartTop);
+      ctx.lineTo(playheadX, chartBottom);
+      ctx.stroke();
+
+      // Probe active dot & beacon
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = colors.accent;
+      ctx.beginPath();
+      ctx.arc(playheadX, probeY, 5 * scale, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Probe pulse ring
+      const probePulse = (t * 3.0) % 1;
+      ctx.strokeStyle = colors.accent;
+      ctx.lineWidth = 1.4;
+      ctx.globalAlpha = 1 - probePulse;
+      ctx.beginPath();
+      ctx.arc(playheadX, probeY, (5 + probePulse * 16) * scale, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      // 6. Packet stream rail at bottom
+      const railY = bottom - 8 * scale;
+      ctx.strokeStyle = colors.soft;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = 0.3;
+      ctx.beginPath();
+      ctx.moveTo(left, railY);
+      ctx.lineTo(right, railY);
+      ctx.stroke();
+      ctx.globalAlpha = 1;
+
+      const packetCount = Math.max(10, Math.min(24, Math.round(w / (32 * scale))));
+      for (let p = 0; p < packetCount; p++) {
+        const pU = ((p / packetCount) + t * 0.18) % 1;
+        const pktX = left + pU * w;
+        const isFaultZone = pU >= 0.32 && pU <= 0.74;
+        const isFaulted = isFaultZone && (p % 3 === 0);
+
+        ctx.fillStyle = isFaulted ? colors.accent : colors.soft;
+        ctx.globalAlpha = isFaulted ? 0.9 : 0.45;
+        if (isFaulted) {
+          ctx.fillRect(pktX - 2.5 * scale, railY - 2.5 * scale, 5 * scale, 5 * scale);
+        } else {
+          ctx.beginPath();
+          ctx.arc(pktX, railY, 2 * scale, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+      ctx.globalAlpha = 1;
+
+      // 7. Micro-HUD Readouts & Badges
+      ctx.fillStyle = colors.soft;
+      ctx.font = `${Math.max(9, Math.round(9 * scale))}px monospace`;
+
+      ctx.textAlign = "left";
+      ctx.fillText("SCHEDULE: STEP / RAMP", left + 4 * scale, top + 12 * scale);
+      ctx.fillText("P95: 142MS · SEED: 0x4B", left + 4 * scale, bottom);
+
+      ctx.textAlign = "right";
+      ctx.fillStyle = colors.accent;
+      ctx.fillText("DEADLINE CLAMP: 2500MS", right - 4 * scale, top + 12 * scale);
+      ctx.fillStyle = colors.soft;
+      ctx.fillText("DISPATCH: 0-DEP CORE", right - 4 * scale, bottom);
+
+      ctx.textAlign = "center";
+      ctx.fillStyle = colors.accent;
+      ctx.fillText("RESILIENCE ENGINE // INJECTION MONITOR", bounds.x + bounds.w / 2, top + 12 * scale);
+    }
+  },
+
+  forgefit: {
+    warm: 3,
+    maxAspect: null,
+    draw: (ctx, t, bounds, colors, scale) => {
+      WORK_PREVIEWS["forge-fit"].draw(ctx, t, bounds, colors, scale);
+    }
+  },
+
   tensor: {
     warm: 3,
     maxAspect: 2.6,

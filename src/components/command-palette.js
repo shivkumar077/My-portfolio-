@@ -79,6 +79,7 @@ export function initCommandPalette({ onNavigate, onToggleTheme, onToggleStats, o
     ...primaryNavigateItems,
     { num: "W-01", label: "Shadow Exchange", action: () => navigateTo("#work-shadow-exchange") },
     { num: "W-02", label: "ASTRA Telemetry Platform", action: () => navigateTo("#work-astra") },
+    { num: "W-03", label: "ForgeFit API Resilience Toolkit", action: () => navigateTo("#work-forge-fit") },
     { num: "◐", label: "Toggle Theme", action: onToggleTheme },
     { num: "@", label: "Email Shiv", action: () => window.open("mailto:shivkumar6990655@gmail.com", "_self") },
     { num: "◈", label: "Coordinate Blueprint Grid", action: onBlueprint },
